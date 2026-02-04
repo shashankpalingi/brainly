@@ -5,4 +5,15 @@ const UserSchema = new Schema({
     password: String
 });
 
+const ContentSchema=new Schema({
+    title:String,
+    link:String,
+    userId:{type:mongoose.Types.ObjectId,ref:'User'},
+    tags:[{type:mongoose.Types.ObjectId,ref:'Tag'}],// objectId
+    type: String,
+    
+})
+
 export const UserModel = model("User", UserSchema);
+
+export const ContentModel=model("Content",ContentSchema);
